@@ -10,6 +10,6 @@ Usage
 -----
 
 `maxpr.py` takes one argument, which is a file with all tournaments to scrape from, with each tournament on a separate line.
-You can get the tournament id from the smash.gg URL. e.g. for https://smash.gg/tournament/get-smashed-at-the-foundry-101/events,
-the tournament id is `get-smashed-at-the-foundry-101`. Lines starting with a '#' will be ignored.
+You can get the tournament id from the smash.gg URL e.g. for https://smash.gg/tournament/get-smashed-at-the-foundry-101/events,
+the tournament id is `get-smashed-at-the-foundry-101`. Lines starting with an '#' will be ignored.
 
