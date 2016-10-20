@@ -5,5 +5,5 @@ sf-game-night-97
 sf-game-night-98
 special-melee-foundry
 sf-game-night-99
-# get-smashed-100
+get-smashed-100
 get-smashed-at-the-foundry-101

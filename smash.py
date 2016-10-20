@@ -60,15 +60,13 @@ class gg:
 
         self.tournament = tournament
         self.url = self.BASE_URL.format(self.tournament)
-        self.id = self.get_id()
+        self.ids = self.get_ids()
         self.entrants = self.get_entrants()
         self.sets = self.get_sets()
 
-    # TODO: get all group ids and loop over them for tournaments with pools
-    def get_id(self):
+    def get_ids(self):
         r = requests.get('{}/event/melee-singles?expand[]=groups'.format(self.url))
-        id = r.json()['entities']['groups'][0]['id']
-        return id
+        return [i['id'] for i in r.json()['entities']['groups']]
 
     def get_entrants(self):
         r = requests.get('{}?expand[]=entrants'.format(self.url))
@@ -81,14 +79,16 @@ class gg:
         return entrants
 
     def get_sets(self):
-        phase = self.PHASE_URL.format(self.id)
-        r = requests.get('{}?expand[]=sets'.format(phase))
-        raw_sets = r.json()['entities']['sets']
-
         sets = []
-        for s in raw_sets:
-            if s['entrant1Id'] is not None and s['entrant2Id'] is not None:
-                sets.append(Set(s, self.entrants))
+
+        for id in self.ids:
+            phase = self.PHASE_URL.format(id)
+            r = requests.get('{}?expand[]=sets'.format(phase))
+            raw_sets = r.json()['entities']['sets']
+
+            for s in raw_sets:
+                if s['entrant1Id'] is not None and s['entrant2Id'] is not None:
+                    sets.append(Set(s, self.entrants))
 
         return sets
 
