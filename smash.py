@@ -29,7 +29,7 @@ class Player:
         self.rating = trueskill.Rating()
 
     def name(self):
-        if self.prefix is None or len(self.prefix) == 0:
+        if not self.prefix:
             return self.gamerTag
         else:
             glue = ' | '
@@ -60,11 +60,11 @@ class gg:
 
         self.tournament = tournament
         self.url = self.BASE_URL.format(self.tournament)
-        self.request = requests.get('{}?expand[]=groups&expand[]=entrants'.format(self.url)).json()
         self.id = self.get_id()
         self.entrants = self.get_entrants()
         self.sets = self.get_sets()
 
+    # TODO: get all group ids and loop over them for tournaments with pools
     def get_id(self):
         r = requests.get('{}/event/melee-singles?expand[]=groups'.format(self.url))
         id = r.json()['entities']['groups'][0]['id']
@@ -72,7 +72,7 @@ class gg:
 
     def get_entrants(self):
         r = requests.get('{}?expand[]=entrants'.format(self.url))
-        entries = self.request['entities']['player']
+        entries = r.json()['entities']['player']
         entrants = {}
 
         for e in entries:
@@ -112,5 +112,5 @@ if __name__ == '__main__':
 
     i = 1
     for player in sorted(players.values(), key=lambda x: x.expose(), reverse=True):
-        print '{: >3} {: >20} {: >20}'.format(i, player.name(), player.expose())
+        print '{: >3} {: >30} {: >20}'.format(i, player.name(), player.expose())
         i += 1
