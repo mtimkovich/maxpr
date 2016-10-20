@@ -21,19 +21,40 @@ class Set:
 
 
 class Player:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, entry):
+        self.gamerTag = entry.gamerTag
+        self.prefix = entry.prefix
+        self.id = entry.id
         self.rating = trueskill.Rating()
+
+    def name(self):
+        if self.prefix is None or len(self.prefix) == 0:
+            return self.gamerTag
+        else:
+            glue = ' | '
+            if self.prefix.endswith('.') or self.prefix.endswith('|'):
+                glue = ' '
+            return '{}{}{}'.format(self.prefix, glue, self.gamerTag)
 
     # Round rating to two decimal places
     def expose(self):
         return round(trueskill.expose(self.rating), 2)
 
 
+class Entry:
+    def __init__(self, entry):
+        self.gamerTag = entry['gamerTag'].encode('utf-8')
+        self.prefix = entry['prefix']
+        if self.prefix is not None:
+            self.prefix = self.prefix.encode('utf-8')
+        self.id = entry['id']
+        self.entrantId = entry['entrantId']
+
+
 # This should be capitalized, but jokes are more important than style
 class gg:
     def __init__(self, tournament):
-        self.BASE_URL = 'https://api.smash.gg/tournament/{}/event/melee-singles'
+        self.BASE_URL = 'https://api.smash.gg/tournament/{}'
         self.PHASE_URL = 'https://api.smash.gg/phase_group/{}'
 
         self.tournament = tournament
@@ -44,15 +65,17 @@ class gg:
         self.sets = self.get_sets()
 
     def get_id(self):
-        id = self.request['entities']['groups'][0]['id']
+        r = requests.get('{}/event/melee-singles?expand[]=groups'.format(self.url))
+        id = r.json()['entities']['groups'][0]['id']
         return id
 
     def get_entrants(self):
-        entries = self.request['entities']['entrants']
+        r = requests.get('{}?expand[]=entrants'.format(self.url))
+        entries = self.request['entities']['player']
         entrants = {}
 
         for e in entries:
-            entrants[e['id']] = e['name'].encode('utf-8')
+            entrants[int(e['entrantId'])] = Entry(e)
 
         return entrants
 
@@ -70,13 +93,13 @@ class gg:
 
     def calc_elo(self, players):
         for s in self.sets:
-            if s.entrant1 not in players:
-                players[s.entrant1] = Player(s.entrant1)
-            if s.entrant2 not in players:
-                players[s.entrant2] = Player(s.entrant2)
+            if s.entrant1.id not in players:
+                players[s.entrant1.id] = Player(s.entrant1)
+            if s.entrant2.id not in players:
+                players[s.entrant2.id] = Player(s.entrant2)
 
-            one = players[s.entrant1]
-            two = players[s.entrant2]
+            one = players[s.entrant1.id]
+            two = players[s.entrant2.id]
 
             one, two = s.rate(one, two)
 
@@ -87,6 +110,6 @@ if __name__ == '__main__':
     g.calc_elo(players)
 
     i = 1
-    for name, player in sorted(players.items(), key=lambda x: x[1].expose(), reverse=True):
-        print '{: >3} {: >20} {: >20}'.format(i, name, player.expose())
+    for player in sorted(players.values(), key=lambda x: x.expose(), reverse=True):
+        print '{: >3} {: >20} {: >20}'.format(i, player.name(), player.expose())
         i += 1
