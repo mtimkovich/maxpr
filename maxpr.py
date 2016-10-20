@@ -14,6 +14,12 @@ def parse_file(file):
 
     return tournaments
 
+def print_table(players):
+    i = 1
+    for player in sorted(players.values(), key=lambda x: x.expose(), reverse=True):
+        print '{: >3} {: >30} {: >20}'.format(i, player.name(), player.expose())
+        i += 1
+
 parser = argparse.ArgumentParser(description='Create Elo rankings from smash.gg brackets')
 parser.add_argument('file', help="Input file containing tournaments to use. Will ignore lines starting with '#'")
 parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
@@ -29,7 +35,4 @@ for tournament in tournaments:
     smash_gg = smash.gg(tournament)
     smash_gg.calc_elo(players)
 
-i = 1
-for player in sorted(players.values(), key=lambda x: x.expose(), reverse=True):
-    print '{: >3} {: >30} {: >20}'.format(i, player.name(), player.expose())
-    i += 1
+print_table(players)
