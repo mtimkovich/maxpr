@@ -52,7 +52,7 @@ class gg:
         entrants = {}
 
         for e in entries:
-            entrants[e['id']] = e['name']
+            entrants[e['id']] = e['name'].encode('utf-8')
 
         return entrants
 
