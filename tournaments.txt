@@ -2,7 +2,7 @@ sf-game-night-93
 sf-game-night-94
 sf-game-night-96
 sf-game-night-97
-# sf-game-night-98
+sf-game-night-98
 special-melee-foundry
 sf-game-night-99
 # get-smashed-100

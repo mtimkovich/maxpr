@@ -12,11 +12,10 @@ class Set:
 
     # Calculate the rating for each game in the set
     def rate(self, one, two):
-        if self.entrant1Score >= 0 and self.entrant2Score >= 0:
-            for _ in range(self.entrant1Score):
-                one.rating, two.rating = trueskill.rate_1vs1(one.rating, two.rating)
-            for _ in range(self.entrant2Score):
-                two.rating, one.rating = trueskill.rate_1vs1(two.rating, one.rating)
+        for _ in range(self.entrant1Score):
+            one.rating, two.rating = trueskill.rate_1vs1(one.rating, two.rating)
+        for _ in range(self.entrant2Score):
+            two.rating, one.rating = trueskill.rate_1vs1(two.rating, one.rating)
 
         return one, two
 

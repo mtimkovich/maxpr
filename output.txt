@@ -2,298 +2,309 @@ Downloading: sf-game-night-93
 Downloading: sf-game-night-94
 Downloading: sf-game-night-96
 Downloading: sf-game-night-97
+Downloading: sf-game-night-98
 Downloading: special-melee-foundry
 Downloading: sf-game-night-99
 Downloading: get-smashed-at-the-foundry-101
   1                  dizzkidboogie                40.17
-  2               SPY | Nintendude                39.29
-  3                      CLG. SFAT                39.06
-  4                 WFX | Shroomed                38.94
-  5                       The Moon                38.79
-  6                   CLG. PewPewU                38.55
-  7                          Azusa                37.84
-  8                          Spark                37.36
-  9                           s0ft                36.26
- 10                       TA | CDK                35.65
- 11                    SAB | Ralph                35.02
- 12                      Choknater                34.79
- 13                           ycz6                34.54
- 14                          Moose                34.54
- 15                        Cactuar                33.51
- 16                         Mahone                33.47
- 17                      Boulevard                33.43
- 18                   MIOM | Dr. Z                33.35
+  2               SPY | Nintendude                 38.9
+  3                 WFX | Shroomed                38.78
+  4                      CLG. SFAT                 38.6
+  5                   CLG. PewPewU                38.55
+  6                       The Moon                38.41
+  7                           soft                38.03
+  8                          Spark                37.28
+  9                          Azusa                37.25
+ 10                           s0ft                35.76
+ 11                       TA | CDK                35.46
+ 12                    SAB | Ralph                34.87
+ 13                      Choknater                34.78
+ 14                           ycz6                34.69
+ 15                          Moose                34.02
+ 16                   MIOM | Dr. Z                33.61
+ 17                         Mahone                33.46
+ 18                        Cactuar                33.44
  19                        Charlon                33.12
- 20                         Umarth                33.01
- 21                     ABAP | NMW                32.85
+ 20                      Boulevard                33.08
+ 21                         Umarth                32.87
  22                           Alan                 32.7
- 23                           Tang                 32.1
- 24                    Machiavelli                31.97
- 25                     Chris Best                31.04
- 26                        Arcadia                30.44
- 27                        Surfero                 30.1
- 28                           Phil                29.92
- 29                      Kalamazhu                29.82
- 30                  Bad News Beta                 29.5
- 31               The Grime Reaper                29.31
- 32                           Rime                29.25
- 33                         Mahone                29.21
- 34         URT | Captain Faceroll                28.89
- 35                        Brandon                28.88
- 36                            gaR                28.68
- 37                       drewgong                28.47
- 38                     Happyhydra                 27.6
- 39                    QTT | Marco                27.53
- 40                         Mikkuz                27.47
- 41                       Tonkatsu                27.47
- 42                       gg | S2B                27.46
- 43                    MIOM | Toph                27.25
- 44      TCP | 420XX | w33dL0rd840                27.21
- 45                          Brand                27.19
- 46                           Imyt                27.19
- 47            Twitch | Tranmobile                27.03
- 48                          Turok                 26.9
- 49                        Skeeter                26.89
- 50                           nhat                26.71
- 51                        Weedlar                26.56
- 52           R3 | Mr. Brandandorf                26.52
- 53                 gg | Chuck Lee                25.96
- 54               MIOM | Tafokints                25.94
- 55                          Pride                25.93
- 56                          Sunny                25.68
- 57                       Untitled                25.48
- 58                    Warwick Foe                25.05
- 59                        Paragon                 24.8
- 60                Twitch | Atrioc                24.52
- 61                       Schwiebs                24.51
- 62                  Boback Vakili                24.43
- 63                          Clubs                24.16
- 64          SkeeBop The Wazzl 4th                23.95
- 65                           Hoof                23.94
- 66             SonoraSmash | Yasu                 23.8
- 67                        Weedlar                23.71
- 68                      Laudandus                23.71
- 69                     Charlezard                23.57
- 70                           Reno                23.56
- 71                           nhat                23.53
- 72                           Mova                 23.5
- 73                         epengu                23.34
- 74                         Sajeel                22.92
- 75                       DJSwerve                22.48
- 76                       Souroush                22.48
- 77                    Charleszard                22.33
- 78                           NaCl                22.31
- 79                        Blueguy                22.25
- 80                  PuffMaster420                22.22
- 81                        Anthony                22.03
- 82                         Turtle                22.01
- 83                     2highSofly                22.01
- 84               gg EGtv | Calvin                21.98
- 85                        Ironman                21.95
- 86                     A$AP POCKY                21.95
- 87                      runescape                21.89
- 88                      gg | Minz                21.67
- 89                          Swank                21.53
- 90                           Myko                21.48
- 91         Cinnamon Apple Oatmeal                21.18
- 92           BERT | Bertbusdriver                20.99
- 93                       OhMyJosh                20.82
- 94                        Egg boy                20.75
- 95                           Bobo                20.72
- 96                          jubby                20.53
- 97                          Fizzi                20.41
- 98                     sgg | Evan                20.01
- 99                        Dr Jwns                19.97
-100                        Suzarya                19.94
-101                           Park                19.91
-102                        Hatcrab                19.85
-103                       Ghidorah                19.81
-104                           Mari                19.74
-105                        Avarice                 19.7
-106                          Dr Hu                19.63
-107                           Char                19.49
-108                   Destinyfan21                19.05
-109                         Zander                18.88
-110                  AbsoluteBlack                18.87
-111                  Peacestem Pal                18.63
-112                        Mimorox                18.34
-113                 low tier fraud                18.29
-114                     Salad Bill                18.19
-115                      dT | HugS                18.12
-116                          Ethan                17.79
-117                        richtit                17.72
-118             BERT | doyoung2win                17.61
-119                           Loki                 17.2
-120              Tufts | Salt Mine                17.02
-121                            PKP                16.65
-122                           Rome                16.47
-123                            Wiz                16.42
-124                         nipunn                16.35
-125                         Willis                 16.2
-126                          Ethan                15.96
-127                           wiss                15.95
-128                     MonkeyJack                15.92
-129              Wet Marth Contest                15.85
-130                         Girony                15.73
-131                          bensw                15.72
-132                       Fumanchu                15.57
-133                           Mole                15.49
-134                         DrJwns                15.24
-135                   toiletsnakes                15.11
-136                            C4D                15.05
-137                          Ethan                15.04
-138                         2Sigma                15.01
-139                  BoN | Sodaaaa                14.96
-140                      King Greg                14.95
-141                       RickShaw                14.93
-142                          Chris                14.83
-143                            NB2                14.79
-144                           Suuu                14.67
-145                    grandma Dan                14.42
-146                     Nick Allen                14.28
-147                        marbles                14.21
-148                         DATSUN                14.18
-149                         Tangle                13.91
-150                           Kami                13.91
-151                          Ethan                13.75
-152                     RickTheFox                13.66
-153                          Massy                13.49
-154                         Kidney                12.87
-155                     Bataflafla                12.85
-156                       Magitech                12.84
-157                OZA | poobanans                12.72
-158                          sreet                12.46
-159                        Muttnik                12.37
-160                       LazerG0d                12.24
-161                            Ted                12.15
-162                        eggmode                 12.1
-163            MARIO PARTY w/ Beer                12.09
-164                         Maniac                12.06
-165                        Noicest                11.94
-166                          Spiff                11.87
-167                          Padre                11.79
-168                        Hamster                11.73
-169                           Suuu                11.69
-170                   Real Dingoes                11.44
-171                           Sean                11.39
-172                   OnePunchMahz                11.34
-173                          The d                11.23
-174                   hentai_lvr69                11.22
-175                SFSU | Ultraman                11.18
-176                           OrCa                11.14
-177                           Phet                10.84
-178                         Connie                10.75
-179                          Snack                10.66
-180                          psych                10.64
-181                     gkinfinity                10.59
-182                       magikarp                 10.2
-183                        koroket                10.02
-184                         Palmer                 10.0
-185                         delete                 9.93
-186                       Deluvian                 9.92
-187                    SLEEPY TIME                 9.84
-188                         2Broke                 9.84
-189                         boback                 9.65
-190      (◕‿◕✿) | Kewaiyeo                  9.5
-191                          ETMIV                  9.5
-192                            Egg                 9.35
-193                     Bighugeman                 9.35
-194                           Rama                 9.19
-195                        seventh                 9.09
-196                      CJHamster                 9.01
-197                         Weston                 8.99
-198                     SAB | Leaf                 8.92
-199                   fieldsbadman                 8.85
-200                 HTC | Treechen                  8.7
-201                        Michael                 8.68
-202                          Space                 8.61
-203          SAB DVC MGE | Megaman                 8.51
-204                         Robgod                 8.37
-205                          yefim                 8.14
-206                         Martel                 8.13
-207                           Sean                 8.11
-208                           Tree                  8.1
-209                        Seventh                 8.07
-210                           Rose                 8.03
-211                   DBX | Synroc                 7.86
-212                           Evan                  7.8
-213                  The President                 7.77
-214                        BigWave                 7.68
-215                        Jaydeep                 7.63
-216                         Palmer                 7.42
-217                          Sammy                  7.1
-218                     S@B | glee                 7.03
-219                     wonderbean                 6.69
-220                        Eltechi                  6.5
-221                          HOLZ!                 6.42
-222                   UMD | Bouyer                 6.21
-223                        cvuplay                 6.12
-224                   Mental Djent                 6.07
-225              gg | JimmyNoJohns                 5.35
-226                         Moocow                 5.34
-227                          Wooly                 4.98
-228                           Coco                 4.98
-229                         Migboy                  4.5
-230               Oilcan Abernathy                  4.5
-231                          Jmiao                  4.5
-232                  Ham_Destroyer                  3.8
-233                         Chouki                  3.7
-234                         Big AC                 3.24
-235                          Aguro                 3.19
-236                    xXHamsterXx                 3.05
-237              gg | UW | leahboo                 3.04
-238                           Pawn                 2.72
-239                             Ry                 2.37
-240                         Wabbit                 1.78
-241                           Xeno                 1.63
-242                  Brosef Stylin                 1.45
-243                        Scrouge                 1.08
-244                     san | Deep                 0.84
-245                           Mark                 0.84
-246                           Pono                 0.74
-247                         @sushi                 0.61
-248                          Bagle                  0.6
-249                         Demmko                 0.51
-250                  Acetaminophan                 0.32
-251                 WeAttackAtDawn                 0.29
-252                           Zbar                 0.26
-253                          SabCo                 0.23
-254                          Angel                 0.21
-255                         Synroc                 0.14
-256                 Tagless Lauren                -0.05
-257                            Suz                -0.07
-258                         Random                -0.08
-259                            MZD                -0.09
-260                       Buhlaine                -0.16
-261                       YesKevin                -0.24
-262                      Mishatola                -0.28
-263                      Dan Tasse                 -0.3
-264                      PlaceboRx                -0.32
-265                           Dern                -0.43
-266                Kneevel Knievel                -0.51
-267              SFSU | KentoBento                -0.52
-268                            Liz                -0.52
-269                          Goose                -0.52
-270       Lovelive Degenerate 3000                -0.52
-271                          Sam G                -0.52
-272                            Ned                -0.52
-273                        SD | DC                -0.57
-274                         Andrew                -0.65
-275                            Mag                -0.68
-276                           Oral                -0.83
-277                    Tempo | Liz                -0.99
-278                      ShiftyPig                -1.18
-279                          Hogan                -1.19
-280                   Big Huge Man                -1.24
-281                        czuplay                -1.45
-282                         Woolly                -1.48
-283                          momma                -1.67
-284                  FoilStormCrow                -1.67
-285                       enjoiful                -1.76
-286                         Butter                -1.76
-287                        Cortney                -1.76
-288                         nimbus                 -1.8
-289                         jagang                -2.05
-290                          Peter                -2.45
-291                           Grip                -2.98
-292                             MD                -4.39
+ 23                     ABAP | NMW                32.58
+ 24                           Tang                 32.1
+ 25                    Machiavelli                31.95
+ 26                     Chris Best                31.04
+ 27                        Arcadia                30.38
+ 28                          C@nip                30.14
+ 29                        Surfero                 30.1
+ 30                           Phil                29.92
+ 31                      Kalamazhu                29.71
+ 32                        Skeeter                29.57
+ 33                  Bad News Beta                 29.5
+ 34               The Grime Reaper                29.31
+ 35                         Mahone                29.21
+ 36                           Rime                28.86
+ 37         URT | Captain Faceroll                28.77
+ 38                            gaR                28.68
+ 39                        Brandon                28.52
+ 40                       drewgong                28.35
+ 41                       gg | S2B                27.78
+ 42      TCP | 420XX | w33dL0rd840                27.64
+ 43                     Happyhydra                27.54
+ 44                    QTT | Marco                27.53
+ 45                         Mikkuz                27.47
+ 46                       Tonkatsu                27.47
+ 47                           Imyt                27.43
+ 48                    MIOM | Toph                27.25
+ 49            Twitch | Tranmobile                27.05
+ 50                          Turok                 26.9
+ 51                           nhat                26.71
+ 52                          Brand                26.58
+ 53           R3 | Mr. Brandandorf                26.52
+ 54                           Loki                26.52
+ 55                 gg | Chuck Lee                26.22
+ 56                          Pride                25.96
+ 57                          Sunny                25.68
+ 58               MIOM | Tafokints                25.52
+ 59                       Untitled                25.48
+ 60                        Weedlar                25.33
+ 61                          Clubs                25.28
+ 62                    Warwick Foe                25.05
+ 63                        Paragon                24.73
+ 64                Twitch | Atrioc                24.52
+ 65                       Schwiebs                24.51
+ 66                     Charlezard                24.47
+ 67                  Boback Vakili                24.43
+ 68                           nhat                24.34
+ 69                      Laudandus                24.23
+ 70                           Hoof                24.13
+ 71          SkeeBop The Wazzl 4th                23.95
+ 72                  PuffMaster420                23.91
+ 73             SonoraSmash | Yasu                 23.8
+ 74                           Reno                23.59
+ 75                           Mova                 23.5
+ 76                         epengu                23.34
+ 77                         Sajeel                22.92
+ 78                        Weedlar                22.71
+ 79                           NaCl                22.58
+ 80                       Souroush                22.48
+ 81               gg EGtv | Calvin                22.36
+ 82                    Charleszard                22.33
+ 83                        Blueguy                22.25
+ 84                      runescape                22.13
+ 85                         Turtle                22.01
+ 86                     2highSofly                22.01
+ 87                        Ironman                 22.0
+ 88                     A$AP POCKY                21.95
+ 89                            NB2                21.94
+ 90                        Anthony                21.86
+ 91                           Bobo                21.75
+ 92                      gg | Minz                21.56
+ 93                          Swank                21.53
+ 94                           Myko                21.48
+ 95                       DJSwerve                21.35
+ 96         Cinnamon Apple Oatmeal                21.18
+ 97           BERT | Bertbusdriver                21.06
+ 98                        Egg boy                20.75
+ 99                          jubby                20.53
+100                       OhMyJosh                 20.5
+101                          Fizzi                20.41
+102                     sgg | Evan                20.01
+103                           Park                19.91
+104                        Suzarya                19.91
+105                          Dr Hu                19.83
+106                       Ghidorah                19.83
+107                        Dr Jwns                19.73
+108                           Mari                19.65
+109                        Hatcrab                 19.6
+110                        Avarice                 19.5
+111                           Char                19.49
+112                    GreenGreens                19.47
+113                   Destinyfan21                19.24
+114                  Peacestem Pal                19.22
+115                  AbsoluteBlack                18.87
+116                         Zander                18.51
+117             BERT | doyoung2win                18.45
+118                        Mimorox                18.34
+119                 low tier fraud                18.29
+120                     Salad Bill                18.19
+121                      dT | HugS                18.12
+122                          Ethan                 18.1
+123                        Hatcrab                18.02
+124                        richtit                17.89
+125                          Massy                17.13
+126              Tufts | Salt Mine                17.02
+127                         boback                16.66
+128                            Wiz                16.65
+129                         Girony                16.61
+130                     NF | Irish                16.53
+131                         nipunn                16.52
+132                           Rome                16.47
+133                   toiletsnakes                16.19
+134                       Fumanchu                16.18
+135                            PKP                16.09
+136                         Willis                16.07
+137                          Ethan                15.96
+138                     MonkeyJack                15.92
+139              Wet Marth Contest                15.85
+140                          bensw                15.72
+141                           Mole                15.25
+142                         DrJwns                15.24
+143                         Kidney                15.21
+144                            C4D                15.05
+145                           wiss                15.04
+146                         2Sigma                15.01
+147                  BoN | Sodaaaa                14.96
+148                       RickShaw                14.93
+149                      King Greg                14.82
+150                         Zander                14.82
+151                           Suuu                14.67
+152                          Chris                14.66
+153                     Nick Allen                14.64
+154                    grandma Dan                 14.5
+155                          Ethan                14.27
+156                        marbles                14.21
+157                         DATSUN                14.18
+158                           Kami                14.09
+159                     RickTheFox                13.97
+160                          Ethan                13.95
+161                         Tangle                13.91
+162                           Suuu                13.61
+163                       Magitech                13.46
+164                     Bataflafla                12.85
+165                OZA | poobanans                12.72
+166                SFSU | Ultraman                12.56
+167                        eggmode                 12.4
+168                        Muttnik                12.37
+169                       LazerG0d                12.24
+170                            Ted                 12.1
+171            MARIO PARTY w/ Beer                12.09
+172                         Maniac                12.06
+173                          sreet                12.06
+174                        Hamster                12.04
+175                        Noicest                11.94
+176                          Padre                11.79
+177                          Spiff                11.77
+178                   Real Dingoes                11.46
+179                   OnePunchMahz                11.34
+180                           Sean                11.31
+181                          The d                11.23
+182                   hentai_lvr69                11.22
+183                           OrCa                11.12
+184                           Phet                10.88
+185                         Connie                10.75
+186                          Snack                10.66
+187                          psych                10.64
+188                     gkinfinity                10.52
+189                       magikarp                 10.2
+190                       Deluvian                10.12
+191                        koroket                10.02
+192                         delete                 9.93
+193                         Palmer                 9.91
+194                          ETMIV                  9.5
+195      (◕‿◕✿) | Kewaiyeo                 9.45
+196                        seventh                 9.37
+197                            Egg                 9.35
+198                     Bighugeman                 9.35
+199                    SLEEPY TIME                 9.23
+200                           Rama                 9.19
+201                         Weston                 9.07
+202                      CJHamster                 9.01
+203                     SAB | Leaf                 8.92
+204                         2Broke                 8.89
+205                   fieldsbadman                 8.85
+206                        Michael                 8.68
+207                          Space                 8.61
+208          SAB DVC MGE | Megaman                 8.51
+209                         Robgod                 8.37
+210                 HTC | Treechen                 8.34
+211                           Sean                 8.11
+212                           Tree                  8.1
+213                          yefim                 8.09
+214                           Rose                 8.03
+215                        Seventh                 8.02
+216                         Martel                 7.95
+217                  The President                 7.77
+218                        BigWave                 7.68
+219                         Palmer                 7.64
+220                        Jaydeep                 7.63
+221                           Evan                 7.31
+222                          Sammy                  7.1
+223                     S@B | glee                 7.03
+224                   DBX | Synroc                 6.76
+225                        Eltechi                 6.74
+226                     wonderbean                 6.69
+227                          HOLZ!                 6.52
+228                   UMD | Bouyer                 6.21
+229                        cvuplay                 6.12
+230                   Mental Djent                 6.07
+231                         Moocow                 5.51
+232              gg | JimmyNoJohns                 5.35
+233                          Ethan                 5.03
+234                          Wooly                 4.98
+235                         Migboy                  4.5
+236               Oilcan Abernathy                  4.5
+237                          Jmiao                  4.5
+238                           Coco                 4.28
+239                         Chouki                 3.83
+240                  Ham_Destroyer                  3.8
+241                         Big AC                 3.23
+242                          Aguro                 3.19
+243                    xXHamsterXx                 3.05
+244              gg | UW | leahboo                 3.04
+245                           Pawn                 2.71
+246                             Ry                 2.37
+247                           Chaz                  2.3
+248                         Wabbit                 1.78
+249                           Xeno                  1.6
+250                       YesKevin                 1.32
+251                  Brosef Stylin                 1.32
+252                     san | Deep                 0.84
+253                           Mark                 0.84
+254                    Tempo | Liz                 0.82
+255                           Pono                 0.74
+256                         @sushi                 0.61
+257                        Scrouge                 0.58
+258                         Demmko                 0.51
+259                          Bagle                 0.42
+260                          space                 0.34
+261                      PlaceboRx                 0.34
+262                 WeAttackAtDawn                 0.29
+263                           Zbar                 0.26
+264                           Mark                 0.25
+265                          Angel                 0.24
+266                          SabCo                 0.23
+267                         Synroc                 0.14
+268                 Tagless Lauren                -0.05
+269                         Random                -0.08
+270                            MZD                -0.09
+271                       Buhlaine                -0.16
+272                      Mishatola                -0.28
+273                      Dan Tasse                -0.29
+274                            Suz                -0.36
+275                  Acetaminophan                -0.38
+276                           Dern                -0.43
+277                Kneevel Knievel                -0.51
+278              SFSU | KentoBento                -0.52
+279                            Liz                -0.52
+280                          Goose                -0.52
+281       Lovelive Degenerate 3000                -0.52
+282                          Sam G                -0.52
+283                            Ned                -0.52
+284                        SD | DC                -0.57
+285                         Andrew                -0.65
+286                            Mag                -0.68
+287                           Oral                -0.78
+288                       enjoiful                -0.89
+289                  FoilStormCrow                -0.96
+290                      ShiftyPig                -1.18
+291                          Hogan                -1.19
+292                   Big Huge Man                -1.24
+293                        czuplay                -1.45
+294                         Woolly                -1.48
+295                          momma                -1.67
+296                        Cortney                -1.76
+297                         nimbus                 -1.8
+298                         jagang                -1.98
+299                         Butter                -2.36
+300                          Peter                -2.45
+301                           Grip                -2.98
+302                             MD                -4.39
