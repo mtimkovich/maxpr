@@ -22,18 +22,12 @@ args = parser.parse_args()
 tournaments = parse_file(args.file)
 
 players = {}
-i = 0
 for tournament in tournaments:
     # TODO: Error checking
     if args.verbose:
         print 'Downloading: {}'.format(tournament)
     smash_gg = smash.gg(tournament)
     smash_gg.calc_elo(players)
-
-    i += 1
-
-    if i >= 2:
-        break
 
 i = 1
 for name, player in sorted(players.items(), key=lambda x: x[1].expose(), reverse=True):
