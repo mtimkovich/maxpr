@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Get Smashed at the Foundry Max Power Ranking</title>
+<link rel='stylesheet' href='style.css' />
+</head>
+<body>
+
+<div id='title'>
+    <h1>Get Smashed at the Foundry</h1>
+    <p>
+    <h1>Max Power Ranking</h1>
+<h2>Last Updated: </h2>
+</div>
+
+<table class='table-striped'>
+  <thead>
+  <tr id='heading'>
+    <th>#</th>
+    <th class='tag'>Tag</th>
+    <th>Elo</th>
+  </tr>
+  </thead>
+
+  <% i = 1 %>
+  % for player in players:
+  <tr>
+    <td>${i}</td>
+    <td class='tag'>${player.name()}</td>
+    <td>${'{:.2f}'.format(player.elo())}</td>
+  </tr>
+  <% i += 1 %>
+  %endfor
+</table>
+
+<p>Source for how rankings are calculated can be found <a href="https://github.com/mtimkovich/smash_maxpr">here</a>.
+
+<p>Created by Max Timkovich
+
+</body>
+</html>

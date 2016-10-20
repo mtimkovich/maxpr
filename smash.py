@@ -37,9 +37,8 @@ class Player:
                 glue = ' '
             return '{}{}{}'.format(self.prefix, glue, self.gamerTag)
 
-    # Round rating to two decimal places
-    def expose(self):
-        return round(trueskill.expose(self.rating), 2)
+    def elo(self):
+        return trueskill.expose(self.rating)
 
 
 class Entry:
@@ -103,14 +102,3 @@ class gg:
             two = players[s.entrant2.id]
 
             one, two = s.rate(one, two)
-
-if __name__ == '__main__':
-    g = gg('get-smashed-at-the-foundry-101')
-
-    players = {}
-    g.calc_elo(players)
-
-    i = 1
-    for player in sorted(players.values(), key=lambda x: x.expose(), reverse=True):
-        print '{: >3} {: >30} {: >20}'.format(i, player.name(), player.expose())
-        i += 1

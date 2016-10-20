@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# encoding: utf-8
 import argparse
+from mako.template import Template
 import smash
 
 
@@ -14,14 +15,16 @@ def parse_file(file):
 
     return tournaments
 
+
 def print_table(players):
     i = 1
-    for player in sorted(players.values(), key=lambda x: x.expose(), reverse=True):
-        print '{: >3} {: >30} {: >20}'.format(i, player.name(), player.expose())
+    for player in sorted(players.values(), key=lambda x: x.elo(), reverse=True):
+        print '{: >3} {: >30} {: >20}'.format(i, player.name(), player.elo())
         i += 1
 
 parser = argparse.ArgumentParser(description='Create Elo rankings from smash.gg brackets')
 parser.add_argument('file', help="Input file containing tournaments to use. Will ignore lines starting with '#'")
+parser.add_argument('--html', action='store_true', help='Output html file')
 parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
 args = parser.parse_args()
 
@@ -35,4 +38,9 @@ for tournament in tournaments:
     smash_gg = smash.gg(tournament)
     smash_gg.calc_elo(players)
 
-print_table(players)
+if args.html:
+    template = Template(filename='template.html', default_filters=['decode.utf8'], 
+                        input_encoding='utf-8', output_encoding='utf-8')
+    print template.render(players=sorted(players.values(), key=lambda x: x.elo(), reverse=True))
+else:
+    print_table(players)
