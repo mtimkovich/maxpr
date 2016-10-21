@@ -16,9 +16,13 @@ def parse_file(file):
     return tournaments
 
 
+def sort_by_rating(players):
+    return sorted(players.values(), key=lambda x: x.elo(), reverse=True)
+
+
 def print_table(players):
     i = 1
-    for player in sorted(players.values(), key=lambda x: x.elo(), reverse=True):
+    for player in sort_by_rating(players):
         print '{: >3} {: >30} {: >20}'.format(i, player.name(), player.elo())
         i += 1
 
@@ -39,8 +43,8 @@ for tournament in tournaments:
     smash_gg.calc_elo(players)
 
 if args.html:
-    template = Template(filename='template.html', default_filters=['decode.utf8'], 
+    template = Template(filename='template.html', default_filters=['decode.utf8'],
                         input_encoding='utf-8', output_encoding='utf-8')
-    print template.render(players=sorted(players.values(), key=lambda x: x.elo(), reverse=True))
+    print template.render(players=sort_by_rating(players))
 else:
     print_table(players)
