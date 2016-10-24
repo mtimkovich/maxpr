@@ -2,6 +2,7 @@
 # encoding: utf-8
 import argparse
 from mako.template import Template
+import os
 import smash
 
 
@@ -43,7 +44,7 @@ for tournament in tournaments:
     smash_gg.calc_elo(players)
 
 if args.html:
-    template = Template(filename='template.html', default_filters=['decode.utf8'],
+    template = Template(filename=os.path.join('template', 'template.html'), default_filters=['decode.utf8'],
                         input_encoding='utf-8', output_encoding='utf-8')
     print template.render(players=sort_by_rating(players))
 else:
