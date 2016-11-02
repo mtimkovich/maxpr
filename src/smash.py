@@ -33,7 +33,9 @@ class Player:
             return self.gamerTag
         else:
             glue = ' | '
-            if self.prefix.endswith('.') or self.prefix.endswith('|'):
+            if self.prefix.endswith('.'):
+                glue = ''
+            elif self.prefix.endswith('|'):
                 glue = ' '
             return '{}{}{}'.format(self.prefix, glue, self.gamerTag)
 
