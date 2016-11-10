@@ -36,16 +36,19 @@ args = parser.parse_args()
 tournaments = parse_file(args.file)
 
 players = {}
+date = None
 for tournament in tournaments:
     # TODO: Error checking
     if args.verbose:
         print 'Downloading: {}'.format(tournament)
     smash_gg = smash.gg(tournament)
     smash_gg.calc_elo(players)
+    date = smash_gg.date
 
 if args.html:
     template = Template(filename=os.path.join('template', 'template.html'), default_filters=['decode.utf8'],
                         input_encoding='utf-8', output_encoding='utf-8')
-    print template.render(players=sort_by_rating(players))
+    print template.render(players=sort_by_rating(players),
+                          date=date)
 else:
     print_table(players)

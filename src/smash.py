@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from datetime import datetime
 import requests
 import trueskill
 
@@ -61,12 +62,17 @@ class gg:
 
         self.tournament = tournament
         self.url = self.BASE_URL.format(self.tournament)
+        self.date = None
         self.ids = self.get_ids()
         self.entrants = self.get_entrants()
         self.sets = self.get_sets()
 
     def get_ids(self):
         r = requests.get('{}/event/melee-singles?expand[]=groups'.format(self.url))
+
+        self.date = r.json()['entities']['event']['startAt']
+        self.date = datetime.fromtimestamp(self.date).strftime('%Y-%m-%d')
+        
         return [i['id'] for i in r.json()['entities']['groups']]
 
     def get_entrants(self):
