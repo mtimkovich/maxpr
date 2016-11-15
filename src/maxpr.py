@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# encoding: utf-8
+#!/usr/bin/env python3
 import argparse
 from mako.template import Template
 import os
@@ -18,13 +17,13 @@ def parse_file(file):
 
 
 def sort_by_rating(players):
-    return sorted(players.values(), key=lambda x: x.elo(), reverse=True)
+    return sorted(list(players.values()), key=lambda x: x.elo(), reverse=True)
 
 
 def print_table(players):
     i = 1
     for player in sort_by_rating(players):
-        print '{: >3} {: >30} {: >20}'.format(i, player.name(), player.elo())
+        print('{: >3} {: >30} {: >20}'.format(i, player.name(), player.elo()))
         i += 1
 
 parser = argparse.ArgumentParser(description='Create Elo rankings from smash.gg brackets')
@@ -40,15 +39,14 @@ date = None
 for tournament in tournaments:
     # TODO: Error checking
     if args.verbose:
-        print 'Downloading: {}'.format(tournament)
+        print('Downloading: {}'.format(tournament))
     smash_gg = smash.gg(tournament)
     smash_gg.calc_elo(players)
     date = smash_gg.date
 
 if args.html:
-    template = Template(filename=os.path.join('template', 'template.html'), default_filters=['decode.utf8'],
-                        input_encoding='utf-8', output_encoding='utf-8')
-    print template.render(players=sort_by_rating(players),
-                          date=date)
+    template = Template(filename=os.path.join('template', 'template.html'))
+    print(template.render(players=sort_by_rating(players),
+                          date=date))
 else:
     print_table(players)

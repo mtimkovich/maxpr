@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from datetime import datetime
 import requests
 import trueskill
@@ -13,6 +13,11 @@ class Set:
 
     # Calculate the rating for each game in the set
     def rate(self, one, two):
+        if self.entrant1Score is None:
+            self.entrant1Score = 0
+        if self.entrant2Score is None:
+            self.entrant2Score = 0
+
         if self.entrant1Score >= 0 and self.entrant2Score >= 0:
             for _ in range(self.entrant1Score):
                 one.rating, two.rating = trueskill.rate_1vs1(one.rating, two.rating)
@@ -46,10 +51,10 @@ class Player:
 
 class Entry:
     def __init__(self, entry):
-        self.gamerTag = entry['gamerTag'].encode('utf-8')
+        self.gamerTag = entry['gamerTag']
         self.prefix = entry['prefix']
         if self.prefix is not None:
-            self.prefix = self.prefix.encode('utf-8')
+            self.prefix = self.prefix
         self.id = entry['id']
         self.entrantId = entry['entrantId']
 
@@ -72,7 +77,7 @@ class gg:
 
         self.date = r.json()['entities']['event']['startAt']
         self.date = datetime.fromtimestamp(self.date).strftime('%Y-%m-%d')
-        
+
         return [i['id'] for i in r.json()['entities']['groups']]
 
     def get_entrants(self):
