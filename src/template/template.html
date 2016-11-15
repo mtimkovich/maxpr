@@ -21,14 +21,12 @@
   </tr>
   </thead>
 
-  <% i = 1 %>
-  % for player in players:
+  % for i, player in enumerate(players):
   <tr>
-    <td>${i}</td>
+    <td>${i+1}</td>
     <td class='tag'>${player.name()}</td>
     <td>${'{:.2f}'.format(player.elo())}</td>
   </tr>
-  <% i += 1 %>
   %endfor
 </table>
 

@@ -48,6 +48,9 @@ class Player:
     def elo(self):
         return trueskill.expose(self.rating)
 
+    def __lt__(self, other):
+        return self.elo() < other.elo()
+
 
 class Entry:
     def __init__(self, entry):
