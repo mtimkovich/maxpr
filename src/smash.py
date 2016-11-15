@@ -24,8 +24,6 @@ class Set:
             for _ in range(self.entrant2Score):
                 two.rating, one.rating = trueskill.rate_1vs1(two.rating, one.rating)
 
-        return one, two
-
 
 class Player:
     def __init__(self, entry):
@@ -56,8 +54,6 @@ class Entry:
     def __init__(self, entry):
         self.gamerTag = entry['gamerTag']
         self.prefix = entry['prefix']
-        if self.prefix is not None:
-            self.prefix = self.prefix
         self.id = entry['id']
         self.entrantId = entry['entrantId']
 
@@ -117,4 +113,4 @@ class gg:
             one = players[s.entrant1.id]
             two = players[s.entrant2.id]
 
-            one, two = s.rate(one, two)
+            s.rate(one, two)
