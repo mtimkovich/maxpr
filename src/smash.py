@@ -61,6 +61,15 @@ class Entry:
 # This should be capitalized, but jokes are more important than style
 class gg:
     def __init__(self, tournament):
+        # TODO: Move remaps to seperate JSON file
+        self.tag_remap = {
+                'soft': 's0ft',
+                'PuffMaster420': 'Happyhydra',
+                'Woolley': 'Wolley',
+                'boback': 'Boback Vakili',
+                'Charlezard': 'Charleszard'
+        }
+
         self.BASE_URL = 'https://api.smash.gg/tournament/{}'
         self.PHASE_URL = 'https://api.smash.gg/phase_group/{}'
 
@@ -105,12 +114,24 @@ class gg:
 
     def calc_elo(self, players):
         for s in self.sets:
-            if s.entrant1.id not in players:
-                players[s.entrant1.id] = Player(s.entrant1)
-            if s.entrant2.id not in players:
-                players[s.entrant2.id] = Player(s.entrant2)
+            entrants = []
 
-            one = players[s.entrant1.id]
-            two = players[s.entrant2.id]
+            for e in [s.entrant1, s.entrant2]:
+                if e.id not in players:
+                    pl = Player(e)
+                    players[e.id] = pl
 
-            s.rate(one, two)
+                    pl.gamerTag = self.tag_remap.get(pl.gamerTag, pl.gamerTag)
+
+                    # if name doesn't exist
+                    if pl.gamerTag not in players:
+                        players[pl.gamerTag] = pl
+                    else:
+                        pl = players[pl.gamerTag]
+                        del players[e.id]
+                else:
+                    pl = players[e.id]
+
+                entrants.append(pl)
+
+            s.rate(entrants[0], entrants[1])

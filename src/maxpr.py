@@ -38,7 +38,8 @@ for tournament in tournaments:
     smash_gg.calc_elo(players)
     date = smash_gg.date
 
-players_list = sorted(players.values(), reverse=True)
+# set to remove the duplicates
+players_list = sorted(set(players.values()), reverse=True)
 
 if args.html:
     template = Template(filename=os.path.join('template', 'template.html'))
