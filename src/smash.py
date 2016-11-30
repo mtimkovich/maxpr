@@ -60,20 +60,12 @@ class Entry:
 
 # This should be capitalized, but jokes are more important than style
 class gg:
-    def __init__(self, tournament):
-        # TODO: Move remaps to seperate JSON file
-        self.tag_remap = {
-                'soft': 's0ft',
-                'PuffMaster420': 'Happyhydra',
-                'Woolley': 'Wolley',
-                'Boback Vakili': 'boback',
-                'Charlezard': 'Charleszard'
-        }
-
+    def __init__(self, tournament, tag_remap={}):
         self.BASE_URL = 'https://api.smash.gg/tournament/{}'
         self.PHASE_URL = 'https://api.smash.gg/phase_group/{}'
 
         self.tournament = tournament
+        self.tag_remap = tag_remap
         self.url = self.BASE_URL.format(self.tournament)
         self.date = None
         self.ids = self.get_ids()

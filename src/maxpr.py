@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import json
 from mako.template import Template
 import os
 import smash
@@ -23,10 +24,16 @@ def print_table(players):
 parser = argparse.ArgumentParser(description='Create Elo rankings from smash.gg brackets')
 parser.add_argument('file', help="Input file containing tournaments to use. Will ignore lines starting with '#'")
 parser.add_argument('--html', action='store_true', help='Output html file')
+parser.add_argument('--tag-map', help='JSON file containing mappings from incorrect gamertags to correct gamertags')
 parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
 args = parser.parse_args()
 
 tournaments = parse_file(args.file)
+
+tag_mappings = {}
+if args.tag_map is not None:
+    with open(args.tag_map) as f:
+        tag_mappings = json.load(f)['maps']
 
 players = {}
 date = None
@@ -34,7 +41,7 @@ for tournament in tournaments:
     # TODO: Error checking
     if args.verbose:
         print('Downloading: {}'.format(tournament))
-    smash_gg = smash.gg(tournament)
+    smash_gg = smash.gg(tournament, tag_mappings)
     smash_gg.calc_elo(players)
     date = smash_gg.date
 
