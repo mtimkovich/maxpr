@@ -66,7 +66,7 @@ class gg:
                 'soft': 's0ft',
                 'PuffMaster420': 'Happyhydra',
                 'Woolley': 'Wolley',
-                'boback': 'Boback Vakili',
+                'Boback Vakili': 'boback',
                 'Charlezard': 'Charleszard'
         }
 

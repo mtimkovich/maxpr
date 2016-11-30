@@ -9,3 +9,5 @@ sf-game-night-99
 get-smashed-100
 get-smashed-at-the-foundry-101
 get-smashed-at-the-foundry-102
+get-smashed-103
+get-smashed-104
