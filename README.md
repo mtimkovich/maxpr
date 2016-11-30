@@ -23,6 +23,8 @@ ratings will be incorrect. Lines starting with a '#' will be ignored.
 
 The `--html` flag can be given to generate the html page.
 
+The `--tag-map` can be given to a JSON file (see `remap.json` for an example) containing mappings from one tag to another. You can use this for players with multiple tags, particularly players without [smash.gg][1] accounts.
+
 [1]: http://smash.gg
 [2]: http://trueskill.org
 [3]: http://www.makotemplates.org
