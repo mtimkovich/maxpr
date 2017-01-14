@@ -18,11 +18,10 @@ class Set:
         if self.entrant2Score is None:
             self.entrant2Score = 0
 
-        if self.entrant1Score >= 0 and self.entrant2Score >= 0:
-            for _ in range(self.entrant1Score):
-                one.rating, two.rating = trueskill.rate_1vs1(one.rating, two.rating)
-            for _ in range(self.entrant2Score):
-                two.rating, one.rating = trueskill.rate_1vs1(two.rating, one.rating)
+        if self.entrant1Score > self.entrant2Score:
+            one.rating, two.rating = trueskill.rate_1vs1(one.rating, two.rating)
+        else:
+            two.rating, one.rating = trueskill.rate_1vs1(two.rating, one.rating)
 
 
 class Player:
