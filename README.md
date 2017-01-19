@@ -3,7 +3,8 @@ MaxPR for Get Smashed at the Foundry
 
 Generates an Elo rating for all players who have competed at the Get Smashed at the Foundry using the [smash.gg][1] brackets.
 The Elo is calculated using using [TrueSkill][2].
-Ratings go from 0 to 50. This covers all singles Foundry tournaments since July 4th, 2016.
+Ratings go from 0 to 50. Inactive players get removed after not attending one of the last 6 tournaments.
+This covers all singles Foundry tournaments since July 4th, 2016.
 
 This program should hopefully be general enough to work with other [smash.gg][1] tournaments as well.
 
@@ -16,14 +17,15 @@ Dependencies
 Usage
 -----
 
-`maxpr.py` takes one argument, which is a file with all tournaments to scrape from, with each tournament on a separate line.
+`maxpr.py` takes one mandatory argument, which is a file with all tournaments to scrape from, with each tournament on a separate line.
 You can get the tournament id from the smash.gg URL e.g. for https://smash.gg/tournament/get-smashed-at-the-foundry-101/events,
 the tournament id is `get-smashed-at-the-foundry-101`. The tournaments *must* be in chronological order, otherwise the generated
 ratings will be incorrect. Lines starting with a '#' will be ignored.
 
 The `--html` flag can be given to generate the html page.
 
-The `--tag-map` can be given to a JSON file (see `remap.json` for an example) containing mappings from one tag to another. You can use this for players with multiple tags, particularly players without [smash.gg][1] accounts.
+The `--tag-map` can be given to point to a JSON file (see `remap.json` for an example) containing mappings from one tag to another.
+You can use this for players with multiple tags, particularly players without [smash.gg][1] accounts.
 
 [1]: http://smash.gg
 [2]: http://trueskill.org
