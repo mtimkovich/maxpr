@@ -37,16 +37,19 @@ if args.tag_map is not None:
 
 players = {}
 date = None
-for tournament in tournaments:
+for i, tournament in enumerate(tournaments):
     # TODO: Error checking
     if args.verbose:
         print('Downloading: {}'.format(tournament))
     smash_gg = smash.gg(tournament, tag_mappings)
-    smash_gg.calc_elo(players)
+    smash_gg.calc_elo(players, i)
+    recent_tourney = i
     date = smash_gg.date
 
 # set to remove the duplicates
 players_list = sorted(set(players.values()), reverse=True)
+# remove inactive players after n tournaments
+players_list = [p for p in players_list if recent_tourney - p.last_played <= 5]
 
 if args.html:
     template = Template(filename=os.path.join('template', 'template.html'))

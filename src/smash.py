@@ -13,10 +13,11 @@ class Set:
 
     # Calculate the rating for each game in the set
     def rate(self, one, two):
-        if self.entrant1Score is None:
-            self.entrant1Score = 0
-        if self.entrant2Score is None:
-            self.entrant2Score = 0
+        if (self.entrant1Score is None or
+                self.entrant2Score is None or
+                self.entrant1Score < 0 or
+                self.entrant2Score < 0):
+            return
 
         if self.entrant1Score > self.entrant2Score:
             one.rating, two.rating = trueskill.rate_1vs1(one.rating, two.rating)
@@ -30,6 +31,7 @@ class Player:
         self.prefix = entry.prefix
         self.id = entry.id
         self.rating = trueskill.Rating()
+        self.last_played = 0
 
     def name(self):
         if not self.prefix:
@@ -103,7 +105,7 @@ class gg:
 
         return sets
 
-    def calc_elo(self, players):
+    def calc_elo(self, players, tourney_num):
         for s in self.sets:
             entrants = []
 
@@ -123,6 +125,7 @@ class gg:
                 else:
                     pl = players[e.id]
 
+                pl.last_played = tourney_num
                 entrants.append(pl)
 
             s.rate(entrants[0], entrants[1])
