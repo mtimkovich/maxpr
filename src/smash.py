@@ -2,6 +2,7 @@
 import pysmash
 import trueskill
 
+trueskill.setup(mu=2000, sigma=2000/3)
 
 class Player:
     def __init__(self, tag):
@@ -10,7 +11,13 @@ class Player:
         self.last_played = 0
 
     def elo(self):
-        return trueskill.expose(self.rating)
+        rating = trueskill.expose(self.rating)
+
+        # Set elo floor to 0
+        if rating < 0.05:
+            return 0.
+        else:
+            return rating
 
     def __lt__(self, other):
         return self.elo() < other.elo()
