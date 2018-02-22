@@ -1,12 +1,10 @@
 # MaxPR for [Smash.gg][1]
 
-MaxPR is a program to generate Elo ratings for given [smash.gg][1] brackets. Despite its name,
-it works with all game types, not just Smash.
+MaxPR is a program to generate Elo ratings for given [smash.gg][1] brackets.
 
 It can output the results as either an HTML page or as a table.
 
-The Elo is calculated using using [TrueSkill][2] and the ratings go from 0 to 50.
-
+The Elo is calculated using using the [TrueSkill][2] library.
 
 ## Dependencies
 
@@ -17,6 +15,7 @@ The Elo is calculated using using [TrueSkill][2] and the ratings go from 0 to 50
 ## Setup
 
 ```
+cd src
 virtualenv --clear env
 source env/bin/activate
 pip install -r requirements.txt
