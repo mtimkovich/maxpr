@@ -20,11 +20,11 @@ def parse_file(file):
 
 def print_table(players):
     for i, player in enumerate(players, 1):
-        print('{: >3} {: >30} {: >20}'.format(i, player.tag, player.elo()))
+        print('{: >3} {: >30}\t{:.2f}'.format(i, player.tag, player.elo()))
 
 parser = argparse.ArgumentParser(description='Create Elo rankings from smash.gg brackets')
 parser.add_argument('file', help="Input file containing brackets to use. Will ignore lines starting with '#'")
-parser.add_argument('--html', action='store_true', help='Output html file')
+parser.add_argument('--html', help='Output to html file')
 parser.add_argument('--title', default='[Tournament Name]', help='Name of tournament series')
 parser.add_argument('--tag-map', help='JSON file containing mappings from incorrect gamertags to correct gamertags')
 parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
@@ -56,8 +56,11 @@ players_list = [p for p in players_list
 if args.html:
     today = date.today().strftime('%Y-%m-%d')
     template = Template(filename=os.path.join('template', 'template.html'))
-    print(template.render(players=players_list,
-                          title=args.title,
-                          date=today))
+    output = template.render(players=players_list,
+                             title=args.title,
+                             date=today)
+    with open(args.html, 'w') as html:
+        html.write(output)
+
 else:
     print_table(players_list)
