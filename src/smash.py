@@ -65,12 +65,19 @@ class Entry:
 class gg:
     def __init__(self, tournament, tag_remap={}):
         tournament = 'https://smash.gg/tournament/norcal-dogfight-feb-2018/events/dragon-ball-fighterz-singles-5-00-pm/brackets/205410'
+        self._parse_url(tournament)
         self.ids = self._get_ids()
         self.entrants = self._get_entrants()
         self.sets = self._get_sets()
 
     def _parse_url(self, tournament_url):
         split = tournament_url.split('/')
+
+        try:
+            self.tournament = split.index('tournament') + 1
+            self.event = split.index('events') + 1
+        except IndexError:
+            print('Invalid smash.gg url: {}'.format(tournament))
 
     def _get_ids(self):
         pass
