@@ -88,12 +88,11 @@ class gg:
         for match in self.sets:
             for entrant_id in [match['entrant_1_id'], match['entrant_2_id']]:
                 tag = self._get_tag_from_id(entrant_id)
+                tag = self.tag_remap.get(tag, tag)
 
                 if tag not in players:
                     pl = Player(tag)
                     players[tag] = pl
-
-                    pl.tag = self.tag_remap.get(pl.tag, pl.tag)
                 else:
                     pl = players[tag]
 
