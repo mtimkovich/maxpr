@@ -20,7 +20,7 @@ def parse_file(file):
 
 def print_table(players):
     for i, player in enumerate(players, 1):
-        print('{: >3} {: >30}\t{:.2f}'.format(i, player.tag, player.elo()))
+        print('{: >3} {: >30} {: >20}'.format(i, player.tag, player.elo()))
 
 parser = argparse.ArgumentParser(description='Create Elo rankings from smash.gg brackets')
 parser.add_argument('file', help="Input file containing brackets to use. Will ignore lines starting with '#'")

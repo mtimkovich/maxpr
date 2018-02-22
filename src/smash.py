@@ -15,9 +15,9 @@ class Player:
 
         # Set elo floor to 0
         if rating < 0.05:
-            return 0.
+            return 0
         else:
-            return rating
+            return int(rating)
 
     def __lt__(self, other):
         return self.elo() < other.elo()
