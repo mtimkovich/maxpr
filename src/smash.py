@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 from datetime import datetime
+import pysmash
+import re
 import requests
 import trueskill
 
 
 class Set:
     def __init__(self, match, entrants):
-        self.entrant1 = entrants[match['entrant1Id']]
-        self.entrant2 = entrants[match['entrant2Id']]
+        self.entrant1 = entrants.get(match.get('entrant1Id', None), None)
+        self.entrant2 = entrants.get(match.get('entrant2Id', None), None)
         self.entrant1Score = match['entrant1Score']
         self.entrant2Score = match['entrant2Score']
 
@@ -62,48 +64,22 @@ class Entry:
 # This should be capitalized, but jokes are more important than style
 class gg:
     def __init__(self, tournament, tag_remap={}):
-        self.BASE_URL = 'https://api.smash.gg/tournament/{}'
-        self.PHASE_URL = 'https://api.smash.gg/phase_group/{}'
+        tournament = 'https://smash.gg/tournament/norcal-dogfight-feb-2018/events/dragon-ball-fighterz-singles-5-00-pm/brackets/205410'
+        self.ids = self._get_ids()
+        self.entrants = self._get_entrants()
+        self.sets = self._get_sets()
 
-        self.tournament = tournament
-        self.tag_remap = tag_remap
-        self.url = self.BASE_URL.format(self.tournament)
-        self.date = None
-        self.ids = self.get_ids()
-        self.entrants = self.get_entrants()
-        self.sets = self.get_sets()
+    def _parse_url(self, tournament_url):
+        split = tournament_url.split('/')
 
-    def get_ids(self):
-        r = requests.get('{}/event/melee-singles?expand[]=groups'.format(self.url))
+    def _get_ids(self):
+        pass
 
-        self.date = r.json()['entities']['event']['startAt']
-        self.date = datetime.fromtimestamp(self.date).strftime('%Y-%m-%d')
+    def _get_entrants(self):
+        pass
 
-        return [i['id'] for i in r.json()['entities']['groups']]
-
-    def get_entrants(self):
-        r = requests.get('{}?expand[]=entrants'.format(self.url))
-        entries = r.json()['entities']['player']
-        entrants = {}
-
-        for e in entries:
-            entrants[int(e['entrantId'])] = Entry(e)
-
-        return entrants
-
-    def get_sets(self):
-        sets = []
-
-        for id in self.ids:
-            phase = self.PHASE_URL.format(id)
-            r = requests.get('{}?expand[]=sets'.format(phase))
-            raw_sets = r.json()['entities']['sets']
-
-            for s in raw_sets:
-                if s['entrant1Id'] is not None and s['entrant2Id'] is not None:
-                    sets.append(Set(s, self.entrants))
-
-        return sets
+    def _get_sets(self):
+        pass
 
     def calc_elo(self, players, tourney_num):
         for s in self.sets:
