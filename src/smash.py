@@ -50,10 +50,15 @@ class gg:
     def _rate_match(self, match):
         """
         Take match dict and update elo for players
+        -1 indicates DQ
         """
         if (match['entrant_1_id'] is None or
                 match['entrant_2_id'] is None or
-                match['winner_id'] is None):
+                match['winner_id'] is None or
+                (match['entrant_1_score'] is not None and
+                    match['entrant_1_score'] == -1) or
+                (match['entrant_2_score'] is not None and
+                    match['entrant_2_score'] == -1)):
             return
 
         one = self._get_player_from_id(match['entrant_1_id'])
