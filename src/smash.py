@@ -1,50 +1,13 @@
 #!/usr/bin/env python3
-from datetime import datetime
 import pysmash
-import re
-import requests
 import trueskill
 
 
-class Set:
-    def __init__(self, match, entrants):
-        self.entrant1 = entrants.get(match.get('entrant1Id', None), None)
-        self.entrant2 = entrants.get(match.get('entrant2Id', None), None)
-        self.entrant1Score = match['entrant1Score']
-        self.entrant2Score = match['entrant2Score']
-
-    # Calculate the rating for each game in the set
-    def rate(self, one, two):
-        if (self.entrant1Score is None or
-                self.entrant2Score is None or
-                self.entrant1Score < 0 or
-                self.entrant2Score < 0):
-            return
-
-        if self.entrant1Score > self.entrant2Score:
-            one.rating, two.rating = trueskill.rate_1vs1(one.rating, two.rating)
-        else:
-            two.rating, one.rating = trueskill.rate_1vs1(two.rating, one.rating)
-
-
 class Player:
-    def __init__(self, entry):
-        self.gamerTag = entry.gamerTag
-        self.prefix = entry.prefix
-        self.id = entry.id
+    def __init__(self, tag):
+        self.tag = tag
         self.rating = trueskill.Rating()
         self.last_played = 0
-
-    def name(self):
-        if not self.prefix:
-            return self.gamerTag
-        else:
-            glue = ' | '
-            if self.prefix.endswith('.'):
-                glue = ''
-            elif self.prefix.endswith('|'):
-                glue = ' '
-            return '{}{}{}'.format(self.prefix, glue, self.gamerTag)
 
     def elo(self):
         return trueskill.expose(self.rating)
@@ -53,62 +16,82 @@ class Player:
         return self.elo() < other.elo()
 
 
-class Entry:
-    def __init__(self, entry):
-        self.gamerTag = entry['gamerTag']
-        self.prefix = entry['prefix']
-        self.id = entry['id']
-        self.entrantId = entry['entrantId']
-
-
-# This should be capitalized, but jokes are more important than style
 class gg:
+    """
+    This should be capitalized, but jokes are more important than style
+    """
+
     def __init__(self, tournament, tag_remap={}):
-        tournament = 'https://smash.gg/tournament/norcal-dogfight-feb-2018/events/dragon-ball-fighterz-singles-5-00-pm/brackets/205410'
+        self.tag_remap = tag_remap
         self._parse_url(tournament)
-        self.ids = self._get_ids()
-        self.entrants = self._get_entrants()
-        self.sets = self._get_sets()
+        smash = pysmash.SmashGG()
+        self.sets = smash.tournament_show_sets(self.tournament, self.event)
+        self.entrants = smash.tournament_show_players(self.tournament, self.event)
 
     def _parse_url(self, tournament_url):
         split = tournament_url.split('/')
 
         try:
-            self.tournament = split.index('tournament') + 1
-            self.event = split.index('events') + 1
+            self.tournament = split[split.index('tournament') + 1]
+            self.event = split[split.index('events') + 1]
         except IndexError:
-            print('Invalid smash.gg url: {}'.format(tournament))
+            print('Invalid smash.gg URL: ' + tournament)
+            raise
 
-    def _get_ids(self):
-        pass
+    def _get_tag_from_id(self, id):
+        for e in self.entrants:
+            if e['entrant_id'] == int(id):
+                return e['tag']
+        raise ValueError('player id not in entrants list. possible issue with smash.gg?')
 
-    def _get_entrants(self):
-        pass
+    def _get_player_from_id(self, id):
+        return self.players[self._get_tag_from_id(id)]
 
-    def _get_sets(self):
-        pass
+    def _rate_match(self, match):
+        """
+        Take match dict and update elo for players
+        """
+        if (match['entrant_1_id'] is None or
+                match['entrant_2_id'] is None or
+                match['winner_id'] is None):
+            return
+
+        one = self._get_player_from_id(match['entrant_1_id'])
+        two = self._get_player_from_id(match['entrant_2_id'])
+
+        if match['entrant_1_id'] == match['winner_id']:
+            one.rating, two.rating = trueskill.rate_1vs1(one.rating, two.rating)
+        elif match['entrant_2_id'] == match['winner_id']:
+            two.rating, one.rating = trueskill.rate_1vs1(two.rating, one.rating)
+        else:
+            raise ValueError("Winner ID not one of the player's id. smash.gg error?")
 
     def calc_elo(self, players, tourney_num):
-        for s in self.sets:
-            entrants = []
+        """
+        Calculate elo for every match in tournament in order
+        """
+        self.players = players
+        grand_finals = []
 
-            for e in [s.entrant1, s.entrant2]:
-                if e.id not in players:
-                    pl = Player(e)
-                    players[e.id] = pl
+        for match in self.sets:
+            for entrant_id in [match['entrant_1_id'], match['entrant_2_id']]:
+                tag = self._get_tag_from_id(entrant_id)
 
-                    pl.gamerTag = self.tag_remap.get(pl.gamerTag, pl.gamerTag)
+                if tag not in players:
+                    pl = Player(tag)
+                    players[tag] = pl
 
-                    # if name doesn't exist
-                    if pl.gamerTag not in players:
-                        players[pl.gamerTag] = pl
-                    else:
-                        pl = players[pl.gamerTag]
-                        del players[e.id]
+                    pl.tag = self.tag_remap.get(pl.tag, pl.tag)
                 else:
-                    pl = players[e.id]
+                    pl = players[tag]
 
                 pl.last_played = tourney_num
-                entrants.append(pl)
 
-            s.rate(entrants[0], entrants[1])
+            # Rate GF match last
+            if match['short_round_text'] == 'GF':
+                grand_finals.append(match)
+            else:
+                self._rate_match(match)
+
+        for match in grand_finals:
+            self._rate_match(match)
