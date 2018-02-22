@@ -1,39 +1,44 @@
 <html>
-<head>
-<title>Get Smashed at the Foundry Max Power Ranking</title>
-<link rel='stylesheet' href='css/style.css' />
-<link rel='shortcut icon' href='img/fox.png' />
-</head>
-<body>
+    <head>
+        <title>${title} Power Ranking</title>
 
-<div id='title'>
-    <h1>Get Smashed at the Foundry</h1>
-    <p>
-    <h1>Max Power Ranking</h1>
-    <h2>Last Updated: ${date}</h2>
-</div>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="template/sticky-footer.css" rel="stylesheet">
+    </head>
+    <body>
+        <main role="main" class="container">
 
-<table class='table-striped'>
-  <thead>
-  <tr id='heading'>
-    <th>#</th>
-    <th class='tag'>Tag</th>
-    <th>Elo</th>
-  </tr>
-  </thead>
+        <h1>${title} Power Ranking</h1>
+        <p class="lead">Last Updated: ${date}</p>
 
-  % for i, player in enumerate(players):
-  <tr>
-    <td>${i+1}</td>
-    <td class='tag'>${player.name()}</td>
-    <td>${'{:.2f}'.format(player.elo())}</td>
-  </tr>
-  %endfor
-</table>
+        <table class='table table-striped'>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tag</th>
+                    <th>Elo</th>
+                </tr>
+            </thead>
 
-<p>Source for how rankings are calculated can be found <a href="https://github.com/mtimkovich/smash_maxpr">here</a>.
+            % for i, player in enumerate(players, 1):
+            <tr>
+                <td>${i}</td>
+                <td>${player.tag}</td>
+                <td>${'{:.2f}'.format(player.elo())}</td>
+            </tr>
+            %endfor
+        </table>
+        </main>
 
-<p>Created by Max Timkovich
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">Source for how rankings are calculated can be found <a href="https://github.com/mtimkovich/smash_maxpr">here</a>.</span>
+            </div>
+        </footer>
 
-</body>
+    </body>
 </html>

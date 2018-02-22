@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+from datetime import date
 import json
 from mako.template import Template
 import os
@@ -18,12 +19,13 @@ def parse_file(file):
 
 
 def print_table(players):
-    for i, player in enumerate(players):
-        print('{: >3} {: >30} {: >20}'.format(i+1, player.name(), player.elo()))
+    for i, player in enumerate(players, 1):
+        print('{: >3} {: >30} {: >20}'.format(i, player.tag, player.elo()))
 
 parser = argparse.ArgumentParser(description='Create Elo rankings from smash.gg brackets')
-parser.add_argument('file', help="Input file containing tournaments to use. Will ignore lines starting with '#'")
+parser.add_argument('file', help="Input file containing brackets to use. Will ignore lines starting with '#'")
 parser.add_argument('--html', action='store_true', help='Output html file')
+parser.add_argument('--title', default='[Tournament Name]', help='Name of tournament series')
 parser.add_argument('--tag-map', help='JSON file containing mappings from incorrect gamertags to correct gamertags')
 parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
 args = parser.parse_args()
@@ -36,7 +38,6 @@ if args.tag_map is not None:
         tag_mappings = json.load(f)['maps']
 
 players = {}
-date = None
 for i, tournament in enumerate(tournaments):
     # TODO: Error checking
     if args.verbose:
@@ -44,16 +45,19 @@ for i, tournament in enumerate(tournaments):
     smash_gg = smash.gg(tournament, tag_mappings)
     smash_gg.calc_elo(players, i)
     recent_tourney = i
-    date = smash_gg.date
 
 # set to remove the duplicates
 players_list = sorted(set(players.values()), reverse=True)
-# remove inactive players after n tournaments
-players_list = [p for p in players_list if recent_tourney - p.last_played <= 5]
+# remove inactive players after inactive_count tournaments
+inactive_count = 5
+players_list = [p for p in players_list
+                if recent_tourney - p.last_played <= inactive_count]
 
 if args.html:
+    today = date.today().strftime('%Y-%m-%d')
     template = Template(filename=os.path.join('template', 'template.html'))
     print(template.render(players=players_list,
-                          date=date))
+                          title=args.title,
+                          date=today))
 else:
     print_table(players_list)
