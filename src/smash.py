@@ -38,21 +38,15 @@ class gg:
     def _parse_url(self, tournament_url):
         split = tournament_url.split('/')
 
-        try:
-            self.tournament = split[split.index('tournament') + 1]
-            self.event = split[split.index('events') + 1]
-        except IndexError:
-            print('Invalid smash.gg URL: ' + tournament)
-            raise
+        self.tournament = split[split.index('tournament') + 1]
+        self.event = split[split.index('events') + 1]
 
     def _get_tag_from_id(self, id):
         for e in self.entrants:
             if e['entrant_id'] == int(id):
                 return e['tag']
-        raise ValueError('player id not in entrants list. possible issue with smash.gg?')
-
-    def _get_player_from_id(self, id):
-        return self.players[self._get_tag_from_id(id)]
+        return None
+        # raise ValueError('player id not in entrants list. possible issue with smash.gg?')
 
     def _rate_match(self, match):
         """
@@ -68,8 +62,11 @@ class gg:
                     match['entrant_2_score'] == -1)):
             return
 
-        one = self._get_player_from_id(match['entrant_1_id'])
-        two = self._get_player_from_id(match['entrant_2_id'])
+        try:
+            one = self.players[match['entrant_1_id']]
+            two = self.players[match['entrant_2_id']]
+        except KeyError:
+            return
 
         if match['entrant_1_id'] == match['winner_id']:
             one.rating, two.rating = trueskill.rate_1vs1(one.rating, two.rating)
@@ -90,11 +87,15 @@ class gg:
                 tag = self._get_tag_from_id(entrant_id)
                 tag = self.tag_remap.get(tag, tag)
 
-                if tag not in players:
+                if tag is None:
+                    continue
+
+                if tag not in self.players:
                     pl = Player(tag)
-                    players[tag] = pl
+                    self.players[tag] = pl
+                    self.players[entrant_id] = pl
                 else:
-                    pl = players[tag]
+                    pl = self.players[tag]
 
                 pl.last_played = tourney_num
 
