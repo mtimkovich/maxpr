@@ -21,6 +21,7 @@
                     <th>#</th>
                     <th>Tag</th>
                     <th>Elo</th>
+                    <th>Games</th>
                 </tr>
             </thead>
 
@@ -29,6 +30,7 @@
                 <td>${i}</td>
                 <td>${player.tag}</td>
                 <td>${'{:.2f}'.format(player.elo())}</td>
+                <td>${player.games}</td>
             </tr>
             %endfor
         </table>
