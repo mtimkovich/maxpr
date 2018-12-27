@@ -9,6 +9,7 @@ class Player:
         self.tag = tag
         self.rating = trueskill.Rating()
         self.last_played = 0
+        self.games = 0
 
     def elo(self):
         rating = trueskill.expose(self.rating)
@@ -42,7 +43,7 @@ class gg:
             self.tournament = split[split.index('tournament') + 1]
             self.event = split[split.index('events') + 1]
         except IndexError:
-            print('Invalid smash.gg URL: ' + tournament)
+            print('Invalid smash.gg URL: ' + self.tournament)
             raise
 
     def _get_tag_from_id(self, id):
@@ -97,6 +98,7 @@ class gg:
                     pl = players[tag]
 
                 pl.last_played = tourney_num
+                pl.games += 1
 
             # Rate GF match last
             if match['short_round_text'] == 'GF':

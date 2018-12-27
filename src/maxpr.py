@@ -25,9 +25,11 @@ def print_table(players):
 parser = argparse.ArgumentParser(description='Create Elo rankings from smash.gg brackets')
 parser.add_argument('file', help="Input file containing brackets to use. Will ignore lines starting with '#'")
 parser.add_argument('--html', help='Output to html file')
+parser.add_argument('--min', help='Set minimum amount of matches a player has to have played')
 parser.add_argument('--title', default='[Tournament Name]', help='Name of tournament series')
 parser.add_argument('--tag-map', help='JSON file containing mappings from incorrect gamertags to correct gamertags')
 parser.add_argument('-v', '--verbose', action='store_true', help='Verbose output')
+
 args = parser.parse_args()
 
 tournaments = parse_file(args.file)
@@ -52,6 +54,11 @@ players_list = sorted(set(players.values()), reverse=True)
 inactive_count = 5
 players_list = [p for p in players_list
                 if recent_tourney - p.last_played <= inactive_count]
+#set minimum matches value
+if args.min:
+    min = int(args.min)
+    players_list = [p for p in players_list
+                if p.games > min]
 
 if args.html:
     today = date.today().strftime('%Y-%m-%d')

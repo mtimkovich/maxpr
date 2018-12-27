@@ -32,7 +32,10 @@ The `--html` flag can be given to generate the html page.
 
 `--title` can be used to set the name of your tournament series on the generated html page.
 
+You can use `--min` to define a minimum amount of matches that has to be played before a player is eligible to be in the list.
+
 The `--tag-map` can be given to a JSON file (see `remap.json` for an example) containing mappings from one tag to another. You can use this for players with multiple tags, particularly players without [smash.gg][1] accounts.
+
 
 ## Issues
 
